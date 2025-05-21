@@ -75,7 +75,7 @@ async function processDocx(blob) {
 
                 // Estrazione del namespace di root
                 const rootNamespace = xmlDoc.documentElement.namespaceURI;
-                output.textContent += '  namespace: ' + rootNamespace;
+                output.textContent += '  namespace: ' + rootNamespace + '\r\n';
             }
         }
         
