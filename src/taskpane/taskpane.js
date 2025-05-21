@@ -68,6 +68,14 @@ async function processDocx(blob) {
                 const data = await e.getData(new TextWriter());
                 console.log(data);
                 output.textContent += 'Custom XML: ' + e.filename + ' - Length: ' + data.length + '\r\n';
+                
+                // Parsing dell'XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "application/xml");
+
+                // Estrazione del namespace di root
+                const rootNamespace = xmlDoc.documentElement.namespaceURI;
+                output.textContent += '  namespace: ' + rootNamespace;
             }
         }
         
